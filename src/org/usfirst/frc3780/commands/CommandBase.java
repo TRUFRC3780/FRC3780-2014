@@ -30,18 +30,16 @@ import org.usfirst.frc3780.subsystems.Chassis;
 public abstract class CommandBase extends Command {
 
     public static OI oi;
-    // Create a single static instance of all of your subsystems
+    
+    // Create a single static instance of all subsystems
     public static Chassis chassis = new Chassis();
 
     public static void init() {
-        // This MUST be here. If the OI creates Commands (which it very likely
-        // will), constructing it during the construction of CommandBase (from
-        // which commands extend), subsystems are not guaranteed to be
-        // yet. Thus, their requires() statements may grab null pointers. Bad
-        // news. Don't move it.
+        // Instantiate OI, subsystems.
         oi = new OI();
+        chassis = new Chassis();
 
-        // Show what command your subsystem is running on the SmartDashboard
+        // Show what command subsystems are running on the SmartDashboard
         SmartDashboard.putData(chassis);
     }
 

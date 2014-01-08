@@ -39,22 +39,21 @@ import org.usfirst.frc3780.commands.CommandBase;
  */
 public class FRC3780Robot extends IterativeRobot {
 
-    // Command autonomousCommand;
+    // TODO: define autonomous command.
 
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
     public void robotInit() {
-        // instantiate the command used for the autonomous period
-
+        // TODO: instantiate the command used for the autonomous period
+        
         // Initialize all subsystems
         CommandBase.init();
     }
 
     public void autonomousInit() {
-        // schedule the autonomous command (example)
-        // autonomousCommand.start();
+        // TODO: schedule the autonomous command.
     }
 
     /**
@@ -65,11 +64,7 @@ public class FRC3780Robot extends IterativeRobot {
     }
 
     public void teleopInit() {
-	// This makes sure that the autonomous stops running when
-        // teleop starts running. If you want the autonomous to 
-        // continue until interrupted by another command, remove
-        // this line or comment it out.
-        // autonomousCommand.cancel();
+	// TODO: cancel autonomous on teleop start.
     }
 
     /**

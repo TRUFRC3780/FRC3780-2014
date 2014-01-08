@@ -19,12 +19,12 @@ package org.usfirst.frc3780.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
- *
+ * This subsystem handles the drive train.
  * @author Brian
  */
 public class Chassis extends Subsystem {
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
+    
+    // Write methods for controlling this subsystem here. Call these from commands.
 
     public void initDefaultCommand() {
 
