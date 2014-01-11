@@ -16,6 +16,8 @@
 
 package org.usfirst.frc3780;
 
+import edu.wpi.first.wpilibj.*;
+import edu.wpi.first.wpilibj.can.*;
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -27,6 +29,29 @@ public class RobotMap {
     // following variables to use with your drivetrain subsystem.
     // public static final int leftMotor = 1;
     // public static final int rightMotor = 2;
+
+	public static enum Drive {
+		FRONTLEFT(5), REARLEFT(4), FRONTRIGHT(3), REARRIGHT(2);
+		
+		public final int port;
+		
+		private Drive(int i) {
+			port = i;
+		}
+		
+		public CANJaguar jag() {
+			try {
+				return new CANJaguar(this.port);
+			}
+			catch(CANTimeoutException e) {
+				System.out.println("CANTimeout Exception while creating CANJaguar" + e);
+				throw new AssertionError("CANTimeout" + e);
+			}
+		}
+		
+	}
+	
+	
     
     // If you are using multiple modules, make sure to define both the port
     // number and the module. For example you with a rangefinder:
