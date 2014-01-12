@@ -33,10 +33,8 @@ public abstract class CommandBase extends Command {
     public static OI oi;
     
     // Create a single static instance of all subsystems
-    public static Roller roller;
     public static Catapult catapult;
     public static Winch winch;
-    public static Slingshot slingshot;
 
     public static void init() {
         
@@ -44,17 +42,16 @@ public abstract class CommandBase extends Command {
         oi = new OI();
         
         try {
-            roller = new Roller();
             catapult = new Catapult();
             winch = new Winch();
-            slingshot = new Slingshot();
         } catch(CANTimeoutException exception) {
             System.out.println(exception.getMessage());
             System.out.println("CANTimeout Exception in CommandBase");
         }
 
         // Show what command subsystems are running on the SmartDashboard
-        SmartDashboard.putData(roller);
+        SmartDashboard.putData(catapult);
+        SmartDashboard.putData(winch);
     }
 
     public CommandBase(String name) {
