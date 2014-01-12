@@ -37,7 +37,13 @@ public class RobotMap {
     final public static int SLINGSHOTJOYSTICKPORT = 2;
     
     // Buttons
-    final public static int FIREBUTTONPORT = 1;
-    final public static int RELOADBUTTONPORT = 1;
+    final public static int FLINGBUTTONPORT = 1;
+    final public static int WINCHBUTTONPORT = 1;
+    
+    // Timers
+    final public static double WINCHTIMER = 0.5;
+    final public static double WINCHSPEED = 0.05;
+    final public static double CATAPULTTIMER = 0.5;
+    final public static double CATAPULTSPEED = 0.05;
     
 }

@@ -34,15 +34,10 @@ public class Winch extends Subsystem {
     }
     
     public void initDefaultCommand(){
-        
     }
     
-    public void motorForward() {
-        
-    }
-    
-    public void motorBackwards(){
-        
+    public void runCIMAtSpeed(double speed) throws CANTimeoutException {
+        winchJag.setX(speed);
     }
     
 }

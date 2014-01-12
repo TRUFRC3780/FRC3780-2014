@@ -22,16 +22,11 @@ public class Slingshot extends Subsystem{
         slingJag = new CANJaguar(RobotMap.SLINGJAGID);
     }
     
-    public void initDefaultCommand(){
-        
+    public void initDefaultCommand(){ 
     }
     
-    public void motorForward() {
-        
-    }
-    
-    public void motorBackwards(){
-        
+    public void runCIMAtSpeed(double speed) throws CANTimeoutException {
+        slingJag.setX(speed);
     }
     
 }

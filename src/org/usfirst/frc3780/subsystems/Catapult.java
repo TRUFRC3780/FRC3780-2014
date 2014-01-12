@@ -17,6 +17,7 @@
 package org.usfirst.frc3780.subsystems;
 
 import edu.wpi.first.wpilibj.CANJaguar;
+import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.can.CANTimeoutException;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc3780.RobotMap;
@@ -34,15 +35,10 @@ public class Catapult extends Subsystem {
     }
     
     public void initDefaultCommand(){
-        
     }
     
-    public void motorForward() {
-        
-    }
-    
-    public void motorBackwards(){
-        
+    public void runCIMAtSpeed(double speed) throws CANTimeoutException {
+        catapultJag.setX(speed);
     }
     
 }

@@ -30,18 +30,19 @@ public class OI {
  
     private final Joystick catapultJoystick;
     private final Joystick slingshotJoystick;
-    private final Button rollerShootButton;
-    private final Button rollerReloadButton;
+    private final Button flingCatapultButton;
+    private final Button runWinchButton;
    
     public OI() {
         catapultJoystick = new Joystick(RobotMap.CATAPULTJOYSTICKPORT);
         slingshotJoystick = new Joystick(RobotMap.SLINGSHOTJOYSTICKPORT);
         
-        rollerShootButton = new JoystickButton(catapultJoystick, RobotMap.FIREBUTTONPORT);
-        rollerShootButton.whenPressed(new Shoot());
+        flingCatapultButton = new JoystickButton(catapultJoystick, RobotMap.FLINGBUTTONPORT);
+        flingCatapultButton.whenPressed(new FlingCatapult(RobotMap.CATAPULTTIMER, RobotMap.CATAPULTSPEED));
         
-        rollerReloadButton = new JoystickButton(catapultJoystick, RobotMap.RELOADBUTTONPORT);
-        rollerReloadButton.whenPressed(new Reload());
+        runWinchButton = new JoystickButton(slingshotJoystick, RobotMap.WINCHBUTTONPORT);
+        runWinchButton.whenPressed(new RunWinch(RobotMap.WINCHTIMER, RobotMap.WINCHSPEED));
+        
     }
 }
 

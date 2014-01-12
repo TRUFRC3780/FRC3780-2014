@@ -33,16 +33,11 @@ public class Roller extends Subsystem {
         rollerJag = new CANJaguar(RobotMap.ROLLERJAGID);
     }
     
-    public void initDefaultCommand(){
-        
+    public void initDefaultCommand(){ 
     }
     
-    public void motorForward() {
-        
-    }
-    
-    public void motorBackwards(){
-        
+    public void runCIMAtSpeed(double speed) throws CANTimeoutException {
+        rollerJag.setX(speed);
     }
     
 }
