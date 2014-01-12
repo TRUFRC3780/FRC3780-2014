@@ -19,7 +19,7 @@ package org.usfirst.frc3780.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc3780.OI;
-import org.usfirst.frc3780.subsystems.Chassis;
+import org.usfirst.frc3780.subsystems.Roller;
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -32,15 +32,15 @@ public abstract class CommandBase extends Command {
     public static OI oi;
     
     // Create a single static instance of all subsystems
-    public static Chassis chassis = new Chassis();
+    public static Roller roller = new Roller();
 
     public static void init() {
         // Instantiate OI, subsystems.
         oi = new OI();
-        chassis = new Chassis();
+       roller = new Roller();
 
         // Show what command subsystems are running on the SmartDashboard
-        SmartDashboard.putData(chassis);
+        SmartDashboard.putData(roller);
     }
 
     public CommandBase(String name) {
