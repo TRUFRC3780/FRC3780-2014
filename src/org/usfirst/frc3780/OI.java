@@ -31,7 +31,8 @@ public class OI {
     private final Joystick catapultJoystick;
     private final Joystick slingshotJoystick;
     private final Button flingCatapultButton;
-    private final Button runWinchButton;
+    private final Button winchUpButton;
+    private final Button winchDownButton;
    
     public OI() {
         catapultJoystick = new Joystick(RobotMap.CATAPULTJOYSTICKPORT);
@@ -40,8 +41,11 @@ public class OI {
         flingCatapultButton = new JoystickButton(catapultJoystick, RobotMap.FLINGBUTTONPORT);
         flingCatapultButton.whenPressed(new FlingCatapult(RobotMap.CATAPULTTIMER, RobotMap.CATAPULTSPEED));
         
-        runWinchButton = new JoystickButton(slingshotJoystick, RobotMap.WINCHBUTTONPORT);
-        runWinchButton.whenPressed(new RunWinch(RobotMap.WINCHTIMER, RobotMap.WINCHSPEED));
+        winchUpButton = new JoystickButton(slingshotJoystick, RobotMap.WINCHUPBUTTONPORT);
+        winchUpButton.whenPressed(new RunWinch(RobotMap.WINCHTIMER, RobotMap.WINCHSPEED));
+        
+        winchDownButton = new JoystickButton(slingshotJoystick, RobotMap.WINCHDOWNBUTTONPORT);
+        winchDownButton.whenPressed(new RunWinch(RobotMap.WINCHTIMER, RobotMap.WINCHSPEED));
         
     }
 }

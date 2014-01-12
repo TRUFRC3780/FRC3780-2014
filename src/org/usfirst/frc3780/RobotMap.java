@@ -38,7 +38,8 @@ public class RobotMap {
     
     // Buttons
     final public static int FLINGBUTTONPORT = 1;
-    final public static int WINCHBUTTONPORT = 1;
+    final public static int WINCHUPBUTTONPORT = 3;
+    final public static int WINCHDOWNBUTTONPORT = 2;
     
     // Timers
     final public static double WINCHTIMER = 0.5;
