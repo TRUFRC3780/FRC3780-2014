@@ -28,17 +28,21 @@ import org.usfirst.frc3780.RobotMap;
  */
 public class Catapult extends Subsystem {
     
-    private CANJaguar catapultJag;
+    private CANJaguar catapultLeftJag;
+    private CANJaguar catapultRightJag;
+    private RobotDrive drive;
     
     public Catapult() throws CANTimeoutException {
-        catapultJag = new CANJaguar(RobotMap.CATAPULTJAGID);
+        catapultLeftJag = new CANJaguar(RobotMap.CATAPULTLEFTJAGID);
+        catapultRightJag = new CANJaguar(RobotMap.CATAPULTRIGHTJAGID);
+        drive = new RobotDrive(catapultLeftJag, catapultRightJag);
     }
     
     public void initDefaultCommand(){
     }
     
-    public void runCIMAtSpeed(double speed) throws CANTimeoutException {
-        catapultJag.setX(speed);
+    public void runCIMAtSpeed(double speed) {
+        drive.setLeftRightMotorOutputs(speed, speed);
     }
     
 }

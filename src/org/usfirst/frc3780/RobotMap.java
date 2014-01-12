@@ -27,10 +27,9 @@ import edu.wpi.first.wpilibj.*;
 public class RobotMap {
 
     // Jaguars
-    final public static int SLINGJAGID = 2;
     final public static int WINCHJAGID = 4;
-    final public static int ROLLERJAGID = 3;
-    final public static int CATAPULTJAGID = 5;
+    final public static int CATAPULTLEFTJAGID = 5;
+    final public static int CATAPULTRIGHTJAGID = 3;
     
     // Joysticks
     final public static int CATAPULTJOYSTICKPORT = 1;
