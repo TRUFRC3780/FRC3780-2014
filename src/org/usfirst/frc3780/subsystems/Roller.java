@@ -25,7 +25,7 @@ import org.usfirst.frc3780.RobotMap;
  *
  * @author Eric
  */
-public class Roller extends Subsystem{
+public class Roller extends Subsystem {
     
     private CANJaguar rollerJag;
     

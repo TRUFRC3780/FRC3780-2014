@@ -25,7 +25,7 @@ import org.usfirst.frc3780.RobotMap;
  *
  * @author Eric
  */
-public class Catapult {
+public class Catapult extends Subsystem {
     
     private CANJaguar catapultJag;
     
