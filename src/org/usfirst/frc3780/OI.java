@@ -28,19 +28,19 @@ import org.usfirst.frc3780.commands.*;
  */
 public class OI {
  
-     private final Joystick firstJoystick;
-    private final Joystick secondJoystick;
+    private final Joystick catapultJoystick;
+    private final Joystick slingshotJoystick;
     private final Button rollerShootButton;
     private final Button rollerReloadButton;
    
-    private OI() {
-        firstJoystick = RobotMap.firstJoystickPort;
-        secondJoystick = RobotMap.secondJoystickPort;
+    public OI() {
+        catapultJoystick = new Joystick(RobotMap.CATAPULTJOYSTICKPORT);
+        slingshotJoystick = new Joystick(RobotMap.SLINGSHOTJOYSTICKPORT);
         
-        rollerShootButton = new JoystickButton(firstJoystick, RobotMap.fireButtonPort);
+        rollerShootButton = new JoystickButton(catapultJoystick, RobotMap.FIREBUTTONPORT);
         rollerShootButton.whenPressed(new Shoot());
         
-        rollerReloadButton = new JoystickButton(firstJoystick, RobotMap.reloadButtonPort);
+        rollerReloadButton = new JoystickButton(catapultJoystick, RobotMap.RELOADBUTTONPORT);
         rollerReloadButton.whenPressed(new Reload());
     }
 }

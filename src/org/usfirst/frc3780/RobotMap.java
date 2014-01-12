@@ -26,6 +26,12 @@ import edu.wpi.first.wpilibj.*;
  */
 public class RobotMap {
 
+    // Joysticks
+    final public static int CATAPULTJOYSTICKPORT;
+    final public static int SLINGSHOTJOYSTICKPORT;
     
+    // Buttons
+    final public static int FIREBUTTONPORT;
+    final public static int RELOADBUTTONPORT;
     
 }

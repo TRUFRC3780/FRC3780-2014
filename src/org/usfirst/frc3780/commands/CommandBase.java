@@ -16,10 +16,11 @@
 
 package org.usfirst.frc3780.commands;
 
+import edu.wpi.first.wpilibj.can.CANTimeoutException;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc3780.OI;
-import org.usfirst.frc3780.subsystems.Roller;
+import org.usfirst.frc3780.subsystems.*;
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -32,12 +33,21 @@ public abstract class CommandBase extends Command {
     public static OI oi;
     
     // Create a single static instance of all subsystems
-    public static Roller roller = new Roller();
+    public static Roller roller;
+    public static Catapult catapult;
 
     public static void init() {
+        
         // Instantiate OI, subsystems.
         oi = new OI();
-       roller = new Roller();
+        
+        try {
+            roller = new Roller();
+            catapult = new Catapult();
+        } catch(CANTimeoutException exception) {
+            System.out.println(exception.getMessage());
+            System.out.println("CANTimeout Exception in CommandBase");
+        }
 
         // Show what command subsystems are running on the SmartDashboard
         SmartDashboard.putData(roller);
