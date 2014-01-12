@@ -16,6 +16,7 @@
 
 package org.usfirst.frc3780.commands;
 
+import edu.wpi.first.wpilibj.can.CANTimeoutException;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc3780.OI;
@@ -32,15 +33,22 @@ public abstract class CommandBase extends Command {
     public static OI oi;
     
     // Create a single static instance of all subsystems
-    public static Chassis chassis = new Chassis();
+    public static Chassis chassis;
 
     public static void init() {
+        
         // Instantiate OI, subsystems.
         oi = new OI();
-        chassis = new Chassis();
-
+        try {
+            chassis = new Chassis();
+        } catch(CANTimeoutException exception) {
+            System.out.println(exception.getMessage());
+            System.out.println("CANTimeout Exception in CommandBase");
+        }
+        
         // Show what command subsystems are running on the SmartDashboard
         SmartDashboard.putData(chassis);
+        
     }
 
     public CommandBase(String name) {

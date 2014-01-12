@@ -16,6 +16,7 @@
 
 package org.usfirst.frc3780.subsystems;
 
+import edu.wpi.first.wpilibj.can.CANTimeoutException;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -24,9 +25,16 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Chassis extends Subsystem {
     
-    // Write methods for controlling this subsystem here. Call these from commands.
+    // TODO: create new RobotDrive and CAN Jaguars here.
 
+    public Chassis() throws CANTimeoutException {
+        // TODO: Initialize RobotDrive and Jaguars here.
+    }
+    
     public void initDefaultCommand() {
 
     }
+    
+    // TODO: write methods for controlling drive train here. [See 2013 code]
+    
 }
