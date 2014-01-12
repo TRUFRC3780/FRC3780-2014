@@ -19,7 +19,7 @@ public class Slingshot extends Subsystem{
      private CANJaguar slingJag;
     
     public Slingshot() throws CANTimeoutException {
-        // TODO: instantiate jag.
+        slingJag = new CANJaguar(RobotMap.SLINGJAGID);
     }
     
     public void initDefaultCommand(){

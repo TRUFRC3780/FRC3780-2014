@@ -30,7 +30,7 @@ public class Roller extends Subsystem {
     private CANJaguar rollerJag;
     
     public Roller() throws CANTimeoutException {
-        // TODO: instantiate jag.
+        rollerJag = new CANJaguar(RobotMap.ROLLERJAGID);
     }
     
     public void initDefaultCommand(){

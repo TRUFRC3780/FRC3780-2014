@@ -35,6 +35,8 @@ public abstract class CommandBase extends Command {
     // Create a single static instance of all subsystems
     public static Roller roller;
     public static Catapult catapult;
+    public static Winch winch;
+    public static Slingshot slingshot;
 
     public static void init() {
         
@@ -44,6 +46,8 @@ public abstract class CommandBase extends Command {
         try {
             roller = new Roller();
             catapult = new Catapult();
+            winch = new Winch();
+            slingshot = new Slingshot();
         } catch(CANTimeoutException exception) {
             System.out.println(exception.getMessage());
             System.out.println("CANTimeout Exception in CommandBase");

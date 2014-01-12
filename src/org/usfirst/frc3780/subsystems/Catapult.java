@@ -30,7 +30,7 @@ public class Catapult extends Subsystem {
     private CANJaguar catapultJag;
     
     public Catapult() throws CANTimeoutException {
-        // TODO: instantiate jag.
+        catapultJag = new CANJaguar(RobotMap.CATAPULTJAGID);
     }
     
     public void initDefaultCommand(){

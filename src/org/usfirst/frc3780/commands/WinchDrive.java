@@ -8,8 +8,32 @@ package org.usfirst.frc3780.commands;
 
 /**
  *
- * @author Owner1
+ * @author Eric
  */
-public class WinchDrive {
+public class WinchDrive extends CommandBase {
+    
+    public WinchDrive() {
+        requires(winch);
+    }
+    
+    protected void initialize() {
+        
+    }
+    
+    protected void execute() {
+        
+    }
+
+    protected boolean isFinished() {
+        return false;
+    }
+    
+    protected void end() {
+        
+    }
+    
+    protected void interrupted() {
+        
+    }
     
 }
