@@ -1,5 +1,5 @@
 /*
-* Copyright 2014 FRC3780 (Brian Fogarty) Licensed under the
+* Copyright 2014 FRC3780 (Brian Fogarty + Eric Rothchild) Licensed under the
 * Educational Community License, Version 2.0 (the "License"); you may
 * not use this file except in compliance with the License. You may
 * obtain a copy of the License at
@@ -27,23 +27,23 @@ import edu.wpi.first.wpilibj.*;
 public class RobotMap {
 
     // Jaguars
-    final public static int WINCHJAGID = 4;
-    final public static int CATAPULTLEFTJAGID = 5;
-    final public static int CATAPULTRIGHTJAGID = 3;
+    final public static int WINCHJAGID = 3;
+    final public static int CATAPULTLEFTJAGID = 1;
+    final public static int CATAPULTRIGHTJAGID = 2;
     
     // Joysticks
     final public static int CATAPULTJOYSTICKPORT = 1;
-    final public static int SLINGSHOTJOYSTICKPORT = 2;
+    final public static int WINCHJOYSTICKPORT = 2;
     
     // Buttons
     final public static int FLINGBUTTONPORT = 1;
     final public static int WINCHUPBUTTONPORT = 3;
     final public static int WINCHDOWNBUTTONPORT = 2;
     
-    // Timers
-    final public static double WINCHTIMER = 0.5;
-    final public static double WINCHSPEED = 0.05;
+    // Timers and speeds
+    final public static double WINCHUPSPEED = -1;
+    final public static double WINCHDOWNSPEED = 1;
     final public static double CATAPULTTIMER = 0.5;
-    final public static double CATAPULTSPEED = 0.05;
+    final public static double CATAPULTSPEED = 1;
     
 }

@@ -1,5 +1,5 @@
 /*
-* Copyright 2014 FRC3780 (Brian Fogarty) Licensed under the
+* Copyright 2014 FRC3780 (Brian Fogarty + Eric Rothchild) Licensed under the
 * Educational Community License, Version 2.0 (the "License"); you may
 * not use this file except in compliance with the License. You may
 * obtain a copy of the License at
@@ -18,7 +18,6 @@ package org.usfirst.frc3780;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
-import edu.wpi.first.wpilibj.buttons.DigitalIOButton;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import org.usfirst.frc3780.commands.*;
 
@@ -29,23 +28,24 @@ import org.usfirst.frc3780.commands.*;
 public class OI {
  
     private final Joystick catapultJoystick;
-    private final Joystick slingshotJoystick;
+    private final Joystick winchJoystick;
+    
     private final Button flingCatapultButton;
     private final Button winchUpButton;
     private final Button winchDownButton;
    
     public OI() {
         catapultJoystick = new Joystick(RobotMap.CATAPULTJOYSTICKPORT);
-        slingshotJoystick = new Joystick(RobotMap.SLINGSHOTJOYSTICKPORT);
+        winchJoystick = new Joystick(RobotMap.WINCHJOYSTICKPORT);
         
         flingCatapultButton = new JoystickButton(catapultJoystick, RobotMap.FLINGBUTTONPORT);
         flingCatapultButton.whenPressed(new FlingCatapult(RobotMap.CATAPULTTIMER, RobotMap.CATAPULTSPEED));
         
-        winchUpButton = new JoystickButton(slingshotJoystick, RobotMap.WINCHUPBUTTONPORT);
-        winchUpButton.whenPressed(new RunWinch(RobotMap.WINCHTIMER, RobotMap.WINCHSPEED));
+        winchUpButton = new JoystickButton(winchJoystick, RobotMap.WINCHUPBUTTONPORT);
+        winchUpButton.whileHeld(new RunWinch(RobotMap.WINCHUPSPEED));
         
-        winchDownButton = new JoystickButton(slingshotJoystick, RobotMap.WINCHDOWNBUTTONPORT);
-        winchDownButton.whenPressed(new RunWinch(RobotMap.WINCHTIMER, RobotMap.WINCHSPEED));
-        
+        winchDownButton = new JoystickButton(winchJoystick, RobotMap.WINCHDOWNBUTTONPORT);
+        winchDownButton.whileHeld(new RunWinch(RobotMap.WINCHDOWNSPEED));
     }
+    
 }

@@ -1,5 +1,5 @@
 /*
-* Copyright 2014 FRC3780 (Brian Fogarty) Licensed under the
+* Copyright 2014 FRC3780 (Brian Fogarty + Eric Rothchild) Licensed under the
 * Educational Community License, Version 2.0 (the "License"); you may
 * not use this file except in compliance with the License. You may
 * obtain a copy of the License at
@@ -25,7 +25,6 @@ package org.usfirst.frc3780;
 
 
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.usfirst.frc3780.commands.CommandBase;
@@ -74,4 +73,5 @@ public class FRC3780Robot extends IterativeRobot {
     public void testPeriodic() {
         LiveWindow.run();
     }
+    
 }

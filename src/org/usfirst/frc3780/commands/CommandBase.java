@@ -1,5 +1,5 @@
 /*
-* Copyright 2014 FRC3780 (Brian Fogarty) Licensed under the
+* Copyright 2014 FRC3780 (Brian Fogarty + Eric Rothchild) Licensed under the
 * Educational Community License, Version 2.0 (the "License"); you may
 * not use this file except in compliance with the License. You may
 * obtain a copy of the License at
@@ -39,16 +39,17 @@ public abstract class CommandBase extends Command {
     public static void init() {
         
         // Instantiate OI, subsystems.
-        oi = new OI();
         
         try {
             catapult = new Catapult();
             winch = new Winch();
         } catch(CANTimeoutException exception) {
-            System.out.println(exception.getMessage());
+            exception.printStackTrace();
             System.out.println("CANTimeout Exception in CommandBase");
         }
 
+        oi = new OI();
+        
         // Show what command subsystems are running on the SmartDashboard
         SmartDashboard.putData(catapult);
         SmartDashboard.putData(winch);

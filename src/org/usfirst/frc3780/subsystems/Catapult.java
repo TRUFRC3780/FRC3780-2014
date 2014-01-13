@@ -1,5 +1,5 @@
 /*
-* Copyright 2014 FRC3780 (Brian Fogarty) Licensed under the
+* Copyright 2014 FRC3780 (Brian Fogarty + Eric Rothchild) Licensed under the
 * Educational Community License, Version 2.0 (the "License"); you may
 * not use this file except in compliance with the License. You may
 * obtain a copy of the License at
@@ -23,7 +23,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc3780.RobotMap;
 
 /**
- *
+ * Subsystem for the catapult.
  * @author Eric
  */
 public class Catapult extends Subsystem {
