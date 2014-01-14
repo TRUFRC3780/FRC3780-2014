@@ -41,9 +41,9 @@ public class RobotMap {
     final public static int WINCHDOWNBUTTONPORT = 2;
     
     // Timers and speeds
-    final public static double WINCHUPSPEED = -1;
-    final public static double WINCHDOWNSPEED = 1;
-    final public static double CATAPULTTIMER = 0.5;
-    final public static double CATAPULTSPEED = 1;
+    final public static double WINCHUPSPEED = -.5;
+    final public static double WINCHDOWNSPEED = .5;
+    final public static double CATAPULTTIMER = .5;
+    final public static double CATAPULTSPEED = -12;
     
 }
