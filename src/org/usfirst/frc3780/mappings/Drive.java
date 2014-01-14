@@ -12,15 +12,11 @@ public enum Drive {
 	FRONTLEFT(2), FRONTRIGHT(3), BACKLEFT(4), BACKRIGHT(5);
 	
 	public final int port;
-	public final CANJaguar motor;
+	public CANJaguar motor() throws CANTimeoutException {
+		return new CANJaguar(this.port);
+	}
 	
 	private Drive(int port) {
 		this.port = port;
-		try {
-			this.motor = new CANJaguar(this.port);
-		}
-		catch(CANTimeoutException e) {
-			throw new AssertionError("Error while initializing CANJaguar",e);
-		}
 	}
 }
