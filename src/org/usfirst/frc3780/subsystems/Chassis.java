@@ -18,6 +18,7 @@ package org.usfirst.frc3780.subsystems;
 
 import edu.wpi.first.wpilibj.can.CANTimeoutException;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import org.usfirst.frc3780.mappings.Drive;
 
 /**
  * This subsystem handles the drive train.
@@ -26,10 +27,21 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Chassis extends Subsystem {
     
     // TODO: create new RobotDrive and CAN Jaguars here.
+	
+	public final CANJaguar frontLeft, frontRight, rearLeft, rearRight;
+	public final RobotDrive drive;
 
     public Chassis() throws CANTimeoutException {
-        // TODO: Initialize RobotDrive and Jaguars here.
+		frontLeft = Drive.FRONTLEFT.motor();
+		frontRight = Drive.FRONTRIGHT.motor();
+		rearLeft = Drive.REARLEFT.motor();
+		rearRight = Drive.REARRIGHT.motor();
+		drive = new RobotDrive(frontLeft,rearLeft,frontRight,rearRight);
     }
+	
+	public void goStraight(double speed) {
+		drive.setLeftRightMotorOutputs(speed,speed);
+	}
     
     public void initDefaultCommand() {
 
