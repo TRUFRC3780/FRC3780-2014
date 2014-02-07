@@ -29,6 +29,10 @@ public class RobotMap {
     public static final int CHASSIS_FRONT_RIGHT_DRIVE_ID = 3;
     public static final int CHASSIS_REAR_LEFT_DRIVE_ID = 4;
     public static final int CHASSIS_REAR_RIGHT_DRIVE_ID = 5;
+
+
+	// The piston ids are currently random sample values
+	public static final int[][] PISTON_IDS = { {4,6,1}, {4,6,3}, {4,8,0} };
     
     
 }
