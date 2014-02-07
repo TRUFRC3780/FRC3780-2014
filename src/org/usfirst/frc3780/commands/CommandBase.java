@@ -20,7 +20,7 @@ import edu.wpi.first.wpilibj.can.CANTimeoutException;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc3780.OI;
-import org.usfirst.frc3780.subsystems.Chassis;
+import org.usfirst.frc3780.subsystems.*;
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -34,6 +34,7 @@ public abstract class CommandBase extends Command {
     
     // Create a single static instance of all subsystems
     public static Chassis chassis;
+	public static Origami origami = new Origami();
 
     public static void init() {
         
@@ -50,6 +51,10 @@ public abstract class CommandBase extends Command {
         SmartDashboard.putData(chassis);
         
     }
+	// Placeholder methods
+	public void initialize() {}
+	public void interrupted() {}
+	public void end() {}
 
     public CommandBase(String name) {
         super(name);

@@ -37,6 +37,15 @@ public class Origami extends Subsystem {
 		for(Piston piston : pistons) piston.toggle();
 	}
 	
+	public boolean isExtended() {
+		boolean extended = true;
+		for(Piston piston : pistons) {
+			if(!piston.isExtended()) extended = false;
+		}
+		
+		return extended;
+	}
+	
 	public void initDefaultCommand() {
 		// Default command currently unset
 	}
