@@ -15,6 +15,8 @@
 */
 
 package org.usfirst.frc3780;
+import java.util.*;
+
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -23,7 +25,23 @@ package org.usfirst.frc3780;
  * floating around.
  */
 public class RobotMap {
-
+	
+	
+	// ANDY DOES NOT LIKE USING PUBLIC STATIC FINAL INTS
+	private static final Map<String,Integer> drive = new HashMap<String,Integer>();
+	static {
+		drive.put("front-left",    2);
+		drive.put("front-right",   3);
+		drive.put("back-left",     4);
+		drive.put("back-right",    5);
+	}
+	
+	
+	public static int getDriveID(String s) {
+		return drive.get(s);
+	}
+	
+	
     // Jaguars
     public static final int CHASSIS_FRONT_LEFT_DRIVE_ID = 2;
     public static final int CHASSIS_FRONT_RIGHT_DRIVE_ID = 3;

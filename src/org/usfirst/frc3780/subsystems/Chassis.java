@@ -16,20 +16,48 @@
 
 package org.usfirst.frc3780.subsystems;
 
-import edu.wpi.first.wpilibj.can.CANTimeoutException;
+import edu.wpi.first.wpilibj.*;
+import edu.wpi.first.wpilibj.can.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
+
+import static org.usfirst.frc3780.RobotMap.*;
 
 /**
  * This subsystem handles the drive train.
- * @author Brian
+ * @author Brian,Andy
  */
 public class Chassis extends Subsystem {
     
+	private CANJaguar frontLeft, backLeft, frontRight, backRight;
+	private RobotDrive drive;
+	
     // TODO: create new RobotDrive and CAN Jaguars here.
 
     public Chassis() throws CANTimeoutException {
-        // TODO: Initialize RobotDrive and Jaguars here.
-    }
+		frontLeft  = new CANJaguar( getDriveID("front-left")  );
+		backLeft   = new CANJaguar( getDriveID("back-left")   );
+		frontRight = new CANJaguar( getDriveID("front-right") );
+		backRight  = new CANJaguar( getDriveID("back-right")  );
+		drive      = new RobotDrive(
+			frontLeft,
+			backLeft,
+			frontRight,
+			backRight
+		);
+		
+	}
+	
+	public void goStraight(double speed) {
+		drive.setLeftRightMotorOutputs(speed,speed);
+	}
+	
+	public void arcadeDrive(Joystick j) {
+		drive.arcadeDrive(j);
+	}
+	
+	public void arcadeDrive(double magnitude,double turn) {
+		drive.arcadeDrive(magnitude,turn);
+	}
     
     public void initDefaultCommand() {
 
