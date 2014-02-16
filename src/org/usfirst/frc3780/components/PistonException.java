@@ -2,13 +2,13 @@
 package org.usfirst.frc3780.components;
 
 public class PistonException extends RuntimeException {
-	private String cause;
+	// Default no-arg constructor
+	public PistonException() {}
+	
+	// Constructor with string for exception message
 	public PistonException(String s) {
-		cause = s;
+		super(s);
 	}
 	
-	public String toString() {
-		return super.toString() + cause;
-	}
 	
 }
