@@ -40,9 +40,6 @@ public abstract class CommandBase extends Command {
 
     public static void init() {
         
-        // Instantiate OI, subsystems.
-        oi = new OI();
-        
         try {
             chassis = new Chassis();
         } catch(CANTimeoutException exception) {
@@ -63,6 +60,9 @@ public abstract class CommandBase extends Command {
             System.out.println(exception.getMessage());
             System.out.println("CANTimeoutException : J" + RobotMap.ARM_DRIVE_ID);
         }
+        
+        // Instantiate OI, subsystems.
+        oi = new OI();
         
         // Show what command subsystems are running on the SmartDashboard
         SmartDashboard.putData(chassis);
