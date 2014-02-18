@@ -34,10 +34,10 @@ public class Chassis extends Subsystem {
     // TODO: create new RobotDrive and CAN Jaguars here.
 
     public Chassis() throws CANTimeoutException {
-		frontLeft  = new CANJaguar( RobotMap.getDriveID("front-left")  );
-		backLeft   = new CANJaguar( RobotMap.getDriveID("back-left")   );
-		frontRight = new CANJaguar( RobotMap.getDriveID("front-right") );
-		backRight  = new CANJaguar( RobotMap.getDriveID("back-right")  );
+		frontLeft  = new CANJaguar( RobotMap.Drive.FRONT_LEFT  );
+		backLeft   = new CANJaguar( RobotMap.Drive.BACK_LEFT   );
+		frontRight = new CANJaguar( RobotMap.Drive.FRONT_RIGHT );
+		backRight  = new CANJaguar( RobotMap.Drive.BACK_RIGHT  );
 		drive      = new RobotDrive(
 			frontLeft,
 			backLeft,
