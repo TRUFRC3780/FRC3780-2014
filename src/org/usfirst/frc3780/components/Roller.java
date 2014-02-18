@@ -33,7 +33,7 @@ public abstract class Roller {
 		return new VictorRoller( slot,channel );
 	}
 	
-	public static Roller jaguar( int deviceNumber ) throws CANTimeoutException {
+	public static Roller jaguar( int deviceNumber ) throws RollerException {
 		return new JagRoller( deviceNumber );
 	}
 	

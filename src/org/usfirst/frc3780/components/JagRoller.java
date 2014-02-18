@@ -8,8 +8,12 @@ public class JagRoller extends Roller {
 	private final CANJaguar jag;
 	
 	
-	public JagRoller(int deviceNumber) throws CANTimeoutException {
-		jag = new CANJaguar(deviceNumber);
+	public JagRoller(int deviceNumber) throws RollerException {
+		try {
+			jag = new CANJaguar(deviceNumber);
+		} catch(CANTimeoutException e) {
+			throw new RollerException(e);
+		} 
 	}
 	
 	// 0-100

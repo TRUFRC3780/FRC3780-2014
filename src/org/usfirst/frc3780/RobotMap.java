@@ -41,6 +41,11 @@ public class RobotMap {
 		return drive.get(s);
 	}
 	
+	// Arm drive
+	public static final int ARM_DRIVE_ID = 5;
+	
+	// Inside Roller
+	public static final int INSIDE_ROLLER_ID = 5;
 	
     // Jaguars
     public static final int CHASSIS_FRONT_LEFT_DRIVE_ID = 2;
