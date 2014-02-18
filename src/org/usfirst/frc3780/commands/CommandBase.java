@@ -21,6 +21,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc3780.OI;
 import org.usfirst.frc3780.subsystems.*;
+import org.usfirst.frc3780.components.*;
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -35,6 +36,8 @@ public abstract class CommandBase extends Command {
     // Create a single static instance of all subsystems
     public static Chassis chassis;
 	public static Origami origami = new Origami();
+	public static InsideRoller insideRoller;
+	public static Arm arm;
 
     public static void init() {
         
@@ -46,21 +49,29 @@ public abstract class CommandBase extends Command {
             System.out.println(exception.getMessage());
             System.out.println("CANTimeout Exception in CommandBase");
         }
+		
+		try {
+			insideRoller = new InsideRoller();
+		} catch(RollerException e) {
+			System.out.println("RollerException while initializing insideRoller");
+			System.out.println(e.getMessage());
+		}
+		
+		try {
+			arm = new Arm();
+		} catch(RollerException e) {
+			System.out.println("RollerException while initializing Arm");
+			System.out.println(e.getMessage());
+		}
         
         // Show what command subsystems are running on the SmartDashboard
         SmartDashboard.putData(chassis);
+		SmartDashboard.putData(insideRoller);
+		SmartDashboard.putData(arm);
         
     }
 	// Placeholder methods
-	public void initialize() {}
-	public void interrupted() {}
-	public void end() {}
 
-    public CommandBase(String name) {
-        super(name);
-    }
-
-    public CommandBase() {
-        super();
-    }
+    public CommandBase(String name) {}
+	public CommandBase() {}
 }

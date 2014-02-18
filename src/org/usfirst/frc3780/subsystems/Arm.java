@@ -9,7 +9,7 @@ import static org.usfirst.frc3780.RobotMap.*;
 public class Arm extends Subsystem {
 	Roller armDrive;
 	
-	public Arm() throws CANTimeoutException {
+	public Arm() throws RollerException {
 		armDrive = Roller.jaguar(ARM_DRIVE_ID);
 	}
 	

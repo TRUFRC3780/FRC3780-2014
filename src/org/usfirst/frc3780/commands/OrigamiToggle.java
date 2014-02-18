@@ -13,4 +13,11 @@ public class OrigamiToggle extends CommandBase {
 	public boolean isFinished() {
 		return initialState != origami.isExtended();
 	}
+	
+	
+	public void initialize() {}
+	public void interrupted() {
+		end();
+	}
+	public void end() {}
 }

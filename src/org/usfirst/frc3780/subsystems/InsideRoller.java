@@ -1,4 +1,4 @@
-package org.usfirst.frc3780;
+package org.usfirst.frc3780.subsystems;
 
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
