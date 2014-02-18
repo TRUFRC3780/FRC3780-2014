@@ -19,8 +19,8 @@ package org.usfirst.frc3780.subsystems;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.can.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import org.usfirst.frc3780.RobotMap;
 
-import static org.usfirst.frc3780.RobotMap.*;
 
 /**
  * This subsystem handles the drive train.
@@ -34,10 +34,10 @@ public class Chassis extends Subsystem {
     // TODO: create new RobotDrive and CAN Jaguars here.
 
     public Chassis() throws CANTimeoutException {
-		frontLeft  = new CANJaguar( getDriveID("front-left")  );
-		backLeft   = new CANJaguar( getDriveID("back-left")   );
-		frontRight = new CANJaguar( getDriveID("front-right") );
-		backRight  = new CANJaguar( getDriveID("back-right")  );
+		frontLeft  = new CANJaguar( RobotMap.getDriveID("front-left")  );
+		backLeft   = new CANJaguar( RobotMap.getDriveID("back-left")   );
+		frontRight = new CANJaguar( RobotMap.getDriveID("front-right") );
+		backRight  = new CANJaguar( RobotMap.getDriveID("back-right")  );
 		drive      = new RobotDrive(
 			frontLeft,
 			backLeft,
