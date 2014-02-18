@@ -20,13 +20,14 @@ import edu.wpi.first.wpilibj.can.CANTimeoutException;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc3780.OI;
-import org.usfirst.frc3780.subsystems.Chassis;
+import org.usfirst.frc3780.RobotMap;
+import org.usfirst.frc3780.subsystems.*;
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
  * CommandBase stores creates and stores each control system. To access a
  * subsystem elsewhere in your code in your code use CommandBase.exampleSubsystem
- * @author Author
+ * @author Brian
  */
 public abstract class CommandBase extends Command {
 
@@ -34,16 +35,33 @@ public abstract class CommandBase extends Command {
     
     // Create a single static instance of all subsystems
     public static Chassis chassis;
+    public static Roller roller;
+    public static Arm arm;
 
     public static void init() {
         
         // Instantiate OI, subsystems.
         oi = new OI();
+        
         try {
             chassis = new Chassis();
         } catch(CANTimeoutException exception) {
             System.out.println(exception.getMessage());
-            System.out.println("CANTimeout Exception in CommandBase");
+            System.out.println("CANTimeoutException : J1, J2, J3, J4");
+        }
+        
+        try {
+            roller = new Roller();
+        } catch(CANTimeoutException exception) {
+            System.out.println(exception.getMessage());
+            System.out.println("CANTimeoutException : J" + RobotMap.ROLLER_DRIVE_ID);
+        }
+        
+        try {
+            arm = new Arm();
+        } catch(CANTimeoutException exception) {
+            System.out.println(exception.getMessage());
+            System.out.println("CANTimeoutException : J" + RobotMap.ARM_DRIVE_ID);
         }
         
         // Show what command subsystems are running on the SmartDashboard

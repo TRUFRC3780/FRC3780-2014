@@ -25,10 +25,20 @@ package org.usfirst.frc3780;
 public class RobotMap {
 
     // Jaguars
-    public static final int CHASSIS_FRONT_LEFT_DRIVE_ID = 2;
+    public static final int CHASSIS_REAR_RIGHT_DRIVE_ID = 1;
+    public static final int CHASSIS_REAR_LEFT_DRIVE_ID = 2;
     public static final int CHASSIS_FRONT_RIGHT_DRIVE_ID = 3;
-    public static final int CHASSIS_REAR_LEFT_DRIVE_ID = 4;
-    public static final int CHASSIS_REAR_RIGHT_DRIVE_ID = 5;
+    public static final int CHASSIS_FRONT_LEFT_DRIVE_ID = 4;
+    public static final int ROLLER_DRIVE_ID = 5;
+    public static final int ARM_DRIVE_ID = 6;
+    
+    // Joysticks
+    public static final int DRIVE_JOYSTICK_PORT = 1;
+    public static final int OPERATOR_JOYSTICK_PORT = 2;
+    
+    // Buttons
+    public static final int TOGGLE_ARM_BUTTON_PORT = 1;
+    public static final int TOGGLE_ROLLER_BUTTON_PORT = 2;
     
     
 }

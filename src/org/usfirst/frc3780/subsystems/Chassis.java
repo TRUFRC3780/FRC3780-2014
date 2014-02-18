@@ -16,8 +16,13 @@
 
 package org.usfirst.frc3780.subsystems;
 
+import edu.wpi.first.wpilibj.CANJaguar;
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.can.CANTimeoutException;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import org.usfirst.frc3780.RobotMap;
+import org.usfirst.frc3780.commands.DriveRobot;
 
 /**
  * This subsystem handles the drive train.
@@ -25,16 +30,27 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Chassis extends Subsystem {
     
-    // TODO: create new RobotDrive and CAN Jaguars here.
+    private RobotDrive drive;
+    private CANJaguar frontLeftDrive, rearLeftDrive, frontRightDrive, rearRightDrive;
 
     public Chassis() throws CANTimeoutException {
-        // TODO: Initialize RobotDrive and Jaguars here.
+        frontLeftDrive = new CANJaguar(RobotMap.CHASSIS_FRONT_LEFT_DRIVE_ID);
+        rearLeftDrive = new CANJaguar(RobotMap.CHASSIS_REAR_LEFT_DRIVE_ID);
+        frontRightDrive = new CANJaguar(RobotMap.CHASSIS_FRONT_RIGHT_DRIVE_ID);
+        rearRightDrive = new CANJaguar(RobotMap.CHASSIS_REAR_RIGHT_DRIVE_ID);
+        drive = new RobotDrive(frontLeftDrive, rearLeftDrive, frontRightDrive, rearRightDrive);
+    }
+    
+    /**
+     * Drives the drive train with an arcade drive joystick.
+     * @param j The joystick that controls the drive train.
+     */
+    public void arcadeDrive(Joystick j) {
+        drive.arcadeDrive(j);
     }
     
     public void initDefaultCommand() {
-
+        setDefaultCommand(new DriveRobot());
     }
-    
-    // TODO: write methods for controlling drive train here. [See 2013 code]
     
 }

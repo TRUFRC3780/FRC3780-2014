@@ -16,8 +16,9 @@
 
 package org.usfirst.frc3780;
 
-import edu.wpi.first.wpilibj.buttons.Button;
-import edu.wpi.first.wpilibj.buttons.DigitalIOButton;
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import org.usfirst.frc3780.commands.*;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -25,7 +26,38 @@ import edu.wpi.first.wpilibj.buttons.DigitalIOButton;
  */
 public class OI {
 
-    // TODO: create joysticks for drive train here.
+    private final Joystick driveJoystick, operatorJoystick;
+    
+    private final JoystickButton toggleArm, toggleRoller;
+    
+    public OI(){
+        
+        driveJoystick = new Joystick(RobotMap.DRIVE_JOYSTICK_PORT);
+        operatorJoystick = new Joystick(RobotMap.OPERATOR_JOYSTICK_PORT);
+        
+        toggleArm = new JoystickButton(operatorJoystick, RobotMap.TOGGLE_ARM_BUTTON_PORT);
+        toggleArm.toggleWhenPressed(new DriveArm());
+        
+        toggleRoller = new JoystickButton(operatorJoystick, RobotMap.TOGGLE_ROLLER_BUTTON_PORT);
+        toggleRoller.toggleWhenPressed(new DriveRoller());
+        
+    }
+    
+    /**
+     * Returns the drive joystick.
+     * @return Drive joystick.
+     */
+    public Joystick getDriveJoystick() {
+        return driveJoystick;
+    }
+    
+    /**
+     * Returns the operator joystick.
+     * @return Operator joystick.
+     */
+    public Joystick getOperatorJoystick() {
+        return operatorJoystick;
+    }
     
 }
 
