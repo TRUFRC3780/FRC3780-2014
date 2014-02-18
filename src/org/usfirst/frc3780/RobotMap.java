@@ -26,8 +26,9 @@ import java.util.*;
  */
 public class RobotMap {
 	
-	
 	// ANDY DOES NOT LIKE USING PUBLIC STATIC FINAL INTS
+        // ANDY FIX YOUR MAPS AND USE PUBLIC STATIC FINAL INTS
+        // sorrynotsorry
 	private static final Map<String,Integer> drive = new HashMap<String,Integer>();
 	static {
 		drive.put("front-left",    1);
@@ -41,21 +42,17 @@ public class RobotMap {
 		return drive.get(s);
 	}
 	
-	
-	// Inside Roller
+        // Jaguars
 	public static final int INSIDE_ROLLER_ID = 5;
-	
-    // Jaguars
-	
-    public static final int ARM_DRIVE_ID = 6;
-    
-       // Joysticks
-    public static final int DRIVE_JOYSTICK_PORT = 1;
-    public static final int OPERATOR_JOYSTICK_PORT = 2;
-    
-       // Buttons
-    public static final int TOGGLE_ARM_BUTTON_PORT = 1;
-    public static final int TOGGLE_ROLLER_BUTTON_PORT = 2;
+        public static final int ARM_DRIVE_ID = 6;
+
+        // Joysticks
+        public static final int DRIVE_JOYSTICK_PORT = 1;
+        public static final int OPERATOR_JOYSTICK_PORT = 2;
+
+        // Buttons
+        public static final int TOGGLE_ARM_BUTTON_PORT = 1;
+        public static final int TOGGLE_ROLLER_BUTTON_PORT = 2;
 
 	// The piston ids are currently random sample values
 	public static final int[][] PISTON_IDS = { {4,6,1}, {4,6,3}, {4,8,0} };

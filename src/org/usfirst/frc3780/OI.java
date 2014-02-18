@@ -36,10 +36,10 @@ public class OI {
         operatorJoystick = new Joystick(RobotMap.OPERATOR_JOYSTICK_PORT);
         
         toggleArm = new JoystickButton(operatorJoystick, RobotMap.TOGGLE_ARM_BUTTON_PORT);
-        // toggleArm.toggleWhenPressed(new DriveArm());
+        toggleArm.toggleWhenPressed(new DriveArm());
         
         toggleRoller = new JoystickButton(operatorJoystick, RobotMap.TOGGLE_ROLLER_BUTTON_PORT);
-        // toggleRoller.toggleWhenPressed(new DriveRoller());
+        toggleRoller.toggleWhenPressed(new DriveRoller());
         
     }
     
