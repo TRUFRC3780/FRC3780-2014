@@ -41,5 +41,10 @@ public class RobotMap {
     public static final int TOGGLE_ARM_BUTTON_PORT = 1;
     public static final int TOGGLE_ROLLER_BUTTON_PORT = 2;
     
+    // Autonomous Timing
+    public static final int ROBOT_DRIVE_TIME = 0;
+    public static final int ROBOT_DRIVE_SPEED = 0;
+    public static final int ROLLER_DRIVE_TIME = 0;
+    public static final int ROLLER_DRIVE_SPEED = 0;
     
 }
