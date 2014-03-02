@@ -16,8 +16,7 @@
 
 package org.usfirst.frc3780.subsystems;
 
-import edu.wpi.first.wpilibj.CANJaguar;
-import edu.wpi.first.wpilibj.can.CANTimeoutException;
+import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc3780.RobotMap;
 import org.usfirst.frc3780.commands.DriveArm;
@@ -28,10 +27,10 @@ import org.usfirst.frc3780.commands.DriveArm;
  */
 public class Arm extends Subsystem {
 
-    private CANJaguar armDrive;
+    private Jaguar armDrive;
 
-    public Arm() throws CANTimeoutException {
-        armDrive = new CANJaguar(RobotMap.ARM_DRIVE_ID);
+    public Arm() {
+        armDrive = new Jaguar(RobotMap.ARM_DRIVE_ID);
     }
     
     /**
@@ -39,16 +38,16 @@ public class Arm extends Subsystem {
      * @param speed Double indicating the speed and direction of the roller.
      * @throws CANTimeoutException
      */
-    public void driveArm(double speed) throws CANTimeoutException {
-        armDrive.setX(speed);
+    public void driveArm(double speed) {
+        armDrive.set(speed);
     }
     
     /**
      * Stops the motors powering the arm.
      * @throws CANTimeoutException
      */
-    public void stopArm() throws CANTimeoutException {
-        armDrive.setX(0);
+    public void stopArm() {
+        armDrive.set(0);
     }
     
     public void initDefaultCommand() {

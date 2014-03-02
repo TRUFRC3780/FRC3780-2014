@@ -16,9 +16,6 @@
 
 package org.usfirst.frc3780.commands;
 
-import edu.wpi.first.wpilibj.can.CANTimeoutException;
-import org.usfirst.frc3780.RobotMap;
-
 /**
  * Drives the arm with the y-axis on the operator joystick.
  * @author Brian
@@ -33,12 +30,7 @@ public class DriveArm extends CommandBase {
     }
 
     protected void execute() {
-        try {
-            arm.driveArm(oi.getOperatorJoystick().getY()*-1);
-        } catch (CANTimeoutException exception) {
-            System.out.println(exception.getMessage());
-            System.out.println("CANTimeoutException : J" + RobotMap.ARM_DRIVE_ID);
-        }
+        arm.driveArm(oi.getOperatorJoystick().getY()*-1);
     }
 
     protected boolean isFinished() {
@@ -46,12 +38,7 @@ public class DriveArm extends CommandBase {
     }
 
     protected void end() {
-        try {
-            arm.stopArm();
-        } catch (CANTimeoutException exception) {
-            System.out.println(exception.getMessage());
-            System.out.println("CANTimeoutException : J" + RobotMap.ARM_DRIVE_ID);
-        }
+        arm.stopArm();
     }
 
     protected void interrupted() {

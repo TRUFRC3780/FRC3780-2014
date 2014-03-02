@@ -16,11 +16,9 @@
 
 package org.usfirst.frc3780.commands;
 
-import edu.wpi.first.wpilibj.can.CANTimeoutException;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc3780.OI;
-import org.usfirst.frc3780.RobotMap;
 import org.usfirst.frc3780.subsystems.*;
 
 /**
@@ -40,26 +38,9 @@ public abstract class CommandBase extends Command {
 
     public static void init() {
         
-        try {
-            chassis = new Chassis();
-        } catch(CANTimeoutException exception) {
-            System.out.println(exception.getMessage());
-            System.out.println("CANTimeoutException : J1, J2, J3, J4");
-        }
-        
-        try {
-            roller = new Roller();
-        } catch(CANTimeoutException exception) {
-            System.out.println(exception.getMessage());
-            System.out.println("CANTimeoutException : J" + RobotMap.ROLLER_DRIVE_ID);
-        }
-        
-        try {
-            arm = new Arm();
-        } catch(CANTimeoutException exception) {
-            System.out.println(exception.getMessage());
-            System.out.println("CANTimeoutException : J" + RobotMap.ARM_DRIVE_ID);
-        }
+        chassis = new Chassis();
+        roller = new Roller();
+        arm = new Arm();
         
         // Instantiate OI, subsystems.
         oi = new OI();

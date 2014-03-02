@@ -16,9 +16,6 @@
 
 package org.usfirst.frc3780.commands;
 
-import edu.wpi.first.wpilibj.can.CANTimeoutException;
-import org.usfirst.frc3780.RobotMap;
-
 /**
  * Drives the roller using the z-axis on the joystick.
  * @author Brian
@@ -33,12 +30,7 @@ public class DriveRoller extends CommandBase {
     }
 
     protected void execute() {
-        try {
-            roller.driveRoller(oi.getOperatorJoystick().getZ()*-1);
-        } catch (CANTimeoutException exception) {
-            System.out.println(exception.getMessage());
-            System.out.println("CANTimeoutException : J" + RobotMap.ROLLER_DRIVE_ID);
-        }
+        roller.driveRoller(oi.getOperatorJoystick().getZ()*-1);
     }
 
     protected boolean isFinished() {
@@ -46,12 +38,7 @@ public class DriveRoller extends CommandBase {
     }
 
     protected void end() {
-        try {
-            roller.stopRoller();
-        } catch (CANTimeoutException exception) {
-            System.out.println(exception.getMessage());
-            System.out.println("CANTimeoutException : J" + RobotMap.ROLLER_DRIVE_ID);
-        }
+        roller.stopRoller();
     }
 
     protected void interrupted() {

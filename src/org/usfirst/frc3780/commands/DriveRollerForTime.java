@@ -17,8 +17,6 @@
 package org.usfirst.frc3780.commands;
 
 import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj.can.CANTimeoutException;
-import org.usfirst.frc3780.RobotMap;
 
 /**
  * Drives the roller for a time at a speed.
@@ -48,12 +46,7 @@ public class DriveRollerForTime extends CommandBase {
     }
 
     protected void execute() {
-        try {
-            roller.driveRoller(speed);
-        } catch (CANTimeoutException exception) {
-            System.out.println(exception.getMessage());
-            System.out.println("CANTimeoutException : J" + RobotMap.ROLLER_DRIVE_ID);
-        }
+        roller.driveRoller(speed);
     }
 
     protected boolean isFinished() {
@@ -61,12 +54,7 @@ public class DriveRollerForTime extends CommandBase {
     }
 
     protected void end() {
-        try {
-            roller.stopRoller();
-        } catch (CANTimeoutException exception) {
-            System.out.println(exception.getMessage());
-            System.out.println("CANTimeoutException : J" + RobotMap.ROLLER_DRIVE_ID);
-        }
+        roller.stopRoller();
     }
 
     protected void interrupted() {

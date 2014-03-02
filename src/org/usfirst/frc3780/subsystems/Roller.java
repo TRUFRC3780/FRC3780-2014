@@ -16,8 +16,7 @@
 
 package org.usfirst.frc3780.subsystems;
 
-import edu.wpi.first.wpilibj.CANJaguar;
-import edu.wpi.first.wpilibj.can.CANTimeoutException;
+import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc3780.RobotMap;
 import org.usfirst.frc3780.commands.DriveRoller;
@@ -28,10 +27,10 @@ import org.usfirst.frc3780.commands.DriveRoller;
  */
 public class Roller extends Subsystem {
 
-    private CANJaguar rollerDrive;
+    private Jaguar rollerDrive;
 
-    public Roller() throws CANTimeoutException {
-        rollerDrive = new CANJaguar(RobotMap.ROLLER_DRIVE_ID);
+    public Roller() {
+        rollerDrive = new Jaguar(RobotMap.ROLLER_DRIVE_ID);
     }
     
     /**
@@ -39,19 +38,19 @@ public class Roller extends Subsystem {
      * @param speed Double indicating the speed and direction of the roller.
      * @throws CANTimeoutException
      */
-    public void driveRoller(double speed) throws CANTimeoutException {
-        rollerDrive.setX(speed);
+    public void driveRoller(double speed) {
+        rollerDrive.set(speed);
     }
     
     /**
      * Stops the motor powering the roller.
      * @throws CANTimeoutException
      */
-    public void stopRoller() throws CANTimeoutException {
-        rollerDrive.setX(0);
+    public void stopRoller() {
+        rollerDrive.set(0);
     }
     
     public void initDefaultCommand() {
-        setDefaultCommand(new DriveRoller());
+//        setDefaultCommand(new DriveRoller());
     }
 }

@@ -30,7 +30,7 @@ public class DriveRobot extends CommandBase {
     }
 
     protected void execute() {
-        chassis.arcadeDrive(oi.getDriveJoystick());
+        chassis.arcadeDrive(oi.getDriveJoystick().getY()*-1, oi.getDriveJoystick().getX()*-1);
     }
 
     protected boolean isFinished() {

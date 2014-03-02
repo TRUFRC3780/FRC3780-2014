@@ -18,6 +18,7 @@ package org.usfirst.frc3780;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc3780.commands.*;
 
 /**
@@ -30,6 +31,8 @@ public class OI {
     
     private final JoystickButton toggleArm, toggleRoller;
     
+    private Command driveRoller = new DriveRoller();
+    
     public OI(){
         
         driveJoystick = new Joystick(RobotMap.DRIVE_JOYSTICK_PORT);
@@ -39,7 +42,7 @@ public class OI {
         toggleArm.toggleWhenPressed(new DriveArm());
         
         toggleRoller = new JoystickButton(operatorJoystick, RobotMap.TOGGLE_ROLLER_BUTTON_PORT);
-        toggleRoller.toggleWhenPressed(new DriveRoller());
+        toggleRoller.toggleWhenPressed(driveRoller);
         
     }
     

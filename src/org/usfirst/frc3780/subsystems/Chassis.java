@@ -16,10 +16,11 @@
 
 package org.usfirst.frc3780.subsystems;
 
-import edu.wpi.first.wpilibj.CANJaguar;
+import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
-import edu.wpi.first.wpilibj.can.CANTimeoutException;
+import edu.wpi.first.wpilibj.SpeedController;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc3780.RobotMap;
 import org.usfirst.frc3780.commands.DriveRobot;
@@ -31,13 +32,13 @@ import org.usfirst.frc3780.commands.DriveRobot;
 public class Chassis extends Subsystem {
     
     private RobotDrive drive;
-    private CANJaguar frontLeftDrive, rearLeftDrive, frontRightDrive, rearRightDrive;
+    private SpeedController frontLeftDrive, rearLeftDrive, frontRightDrive, rearRightDrive;
 
-    public Chassis() throws CANTimeoutException {
-        frontLeftDrive = new CANJaguar(RobotMap.CHASSIS_FRONT_LEFT_DRIVE_ID);
-        rearLeftDrive = new CANJaguar(RobotMap.CHASSIS_REAR_LEFT_DRIVE_ID);
-        frontRightDrive = new CANJaguar(RobotMap.CHASSIS_FRONT_RIGHT_DRIVE_ID);
-        rearRightDrive = new CANJaguar(RobotMap.CHASSIS_REAR_RIGHT_DRIVE_ID);
+    public Chassis() {
+        frontLeftDrive = new Talon(RobotMap.CHASSIS_FRONT_LEFT_DRIVE_ID);
+        rearLeftDrive = new Jaguar(RobotMap.CHASSIS_REAR_LEFT_DRIVE_ID);
+        frontRightDrive = new Jaguar(RobotMap.CHASSIS_FRONT_RIGHT_DRIVE_ID);
+        rearRightDrive = new Talon(RobotMap.CHASSIS_REAR_RIGHT_DRIVE_ID);
         drive = new RobotDrive(frontLeftDrive, rearLeftDrive, frontRightDrive, rearRightDrive);
     }
     
@@ -47,6 +48,15 @@ public class Chassis extends Subsystem {
      */
     public void arcadeDrive(Joystick j) {
         drive.arcadeDrive(j);
+    }
+    
+    /**
+     * Drives the drive train with an arcade drive joystick.
+     * @param y The y-axis of the drive joystick.
+     * @param x The x-axis of the drive joystick.
+     */
+    public void arcadeDrive(double y, double x) {
+        drive.arcadeDrive(y, x);
     }
     
     /**

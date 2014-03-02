@@ -25,8 +25,10 @@ package org.usfirst.frc3780;
 
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import org.usfirst.frc3780.commands.AutoCommandGroup;
 import org.usfirst.frc3780.commands.CommandBase;
 
 /**
@@ -38,6 +40,8 @@ import org.usfirst.frc3780.commands.CommandBase;
  */
 public class FRC3780Robot extends IterativeRobot {
 
+    private Command autoCommand;
+    
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -46,10 +50,12 @@ public class FRC3780Robot extends IterativeRobot {
         
         // Initialize all subsystems
         CommandBase.init();
+        autoCommand = new AutoCommandGroup();
         
     }
 
     public void autonomousInit() {
+        autoCommand.start();
     }
 
     /**
