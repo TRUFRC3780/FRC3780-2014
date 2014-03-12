@@ -7,13 +7,13 @@ import org.usfirst.frc3780.RobotMap;
 import org.usfirst.frc3780.components.*;
 
 public class Arm extends Subsystem {
-	Roller armDrive;
+	Controller armDrive;
 	
-	public Arm() throws RollerException {
-		armDrive = Roller.jaguar(RobotMap.ARM_DRIVE_ID);
+	public Arm() throws ControllerException {
+		armDrive = Controller.jaguar(RobotMap.ARM_DRIVE_ID);
 	}
 	
-	public void driveArm(double speed) throws RollerException {
+	public void driveArm(double speed) throws ControllerException {
 		armDrive.set(speed);
 	}
 	

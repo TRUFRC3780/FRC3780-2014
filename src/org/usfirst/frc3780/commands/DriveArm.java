@@ -36,9 +36,9 @@ public class DriveArm extends CommandBase {
     protected void execute() {
         try {
             arm.driveArm(oi.getOperatorJoystick().getY()*-1);
-        } catch (RollerException exception) {
+        } catch (ControllerException exception) {
             System.out.println(exception.getMessage());
-            System.out.println("RollerExceptiona : J" + RobotMap.ARM_DRIVE_ID);
+            System.out.println("ControllerExceptiona : J" + RobotMap.ARM_DRIVE_ID);
         }
     }
 
@@ -49,9 +49,9 @@ public class DriveArm extends CommandBase {
     protected void end() {
         try {
             arm.stop();
-        } catch (RollerException exception) {
+        } catch (ControllerException exception) {
             System.out.println(exception.getMessage());
-            System.out.println("RollerException : J" + RobotMap.ARM_DRIVE_ID);
+            System.out.println("ControllerException : J" + RobotMap.ARM_DRIVE_ID);
         }
     }
 

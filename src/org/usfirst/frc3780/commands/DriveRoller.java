@@ -21,13 +21,13 @@ import org.usfirst.frc3780.RobotMap;
 import org.usfirst.frc3780.components.*;
 
 /**
- * Drives the insideRoller using the z-axis on the joystick.
+ * Drives the roller using the z-axis on the joystick.
  * @author Brian
  */
 public class DriveRoller extends CommandBase {
     
     public DriveRoller() {
-        requires(insideRoller);
+        requires(roller);
     }
 
     protected void initialize() {
@@ -35,10 +35,10 @@ public class DriveRoller extends CommandBase {
 
     protected void execute() {
         try {
-            insideRoller.driveRoller(oi.getOperatorJoystick().getZ()*-1);
-        } catch (RollerException exception) {
+            roller.driveRoller(oi.getOperatorJoystick().getZ()*-1);
+        } catch (ControllerException exception) {
             System.out.println(exception.getMessage());
-            System.out.println("RollerException : J" + RobotMap.INSIDE_ROLLER_ID);
+            System.out.println("ControllerException : J" + RobotMap.INSIDE_ROLLER_ID);
         }
     }
 
@@ -48,10 +48,10 @@ public class DriveRoller extends CommandBase {
 
     protected void end() {
         try {
-            insideRoller.stop();
-        } catch (RollerException exception) {
+            roller.stop();
+        } catch (ControllerException exception) {
             System.out.println(exception.getMessage());
-            System.out.println("RollerException : J" + RobotMap.INSIDE_ROLLER_ID);
+            System.out.println("ControllerException : J" + RobotMap.INSIDE_ROLLER_ID);
         }
     }
 

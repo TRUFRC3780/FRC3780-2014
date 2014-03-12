@@ -5,14 +5,14 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc3780.RobotMap;
 import org.usfirst.frc3780.components.*;
 
-public class InsideRoller extends Subsystem {
-	private Roller rollerDrive;
+public class Roller extends Subsystem {
+	private Controller rollerDrive;
 	
-	public InsideRoller() throws RollerException {
-		rollerDrive = Roller.jaguar(RobotMap.INSIDE_ROLLER_ID);
+	public Roller() throws ControllerException {
+		rollerDrive = Controller.jaguar(RobotMap.INSIDE_ROLLER_ID);
 	}
 	
-	public void driveRoller(double speed) throws RollerException {
+	public void driveRoller(double speed) throws ControllerException {
 		rollerDrive.set(speed);
 	}
 	

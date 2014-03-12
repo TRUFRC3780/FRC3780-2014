@@ -19,6 +19,7 @@ package org.usfirst.frc3780;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import org.usfirst.frc3780.commands.*;
+import org.usfirst.frc3780.subsystems.*;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -36,10 +37,10 @@ public class OI {
         operatorJoystick = new Joystick(RobotMap.OPERATOR_JOYSTICK_PORT);
         
         toggleArm = new JoystickButton(operatorJoystick, RobotMap.TOGGLE_ARM_BUTTON_PORT);
-        toggleArm.toggleWhenPressed(new DriveArm());
+        toggleArm.whenPressed(new DriveArm());
         
         toggleRoller = new JoystickButton(operatorJoystick, RobotMap.TOGGLE_ROLLER_BUTTON_PORT);
-        toggleRoller.toggleWhenPressed(new DriveRoller());
+        toggleRoller.whenPressed(new DriveRoller());
         
     }
     

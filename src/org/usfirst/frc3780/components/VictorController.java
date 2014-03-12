@@ -2,14 +2,14 @@ package org.usfirst.frc3780.components;
 
 import edu.wpi.first.wpilibj.*;
 
-public class VictorRoller extends Roller {
+public class VictorController extends Controller {
 	private final Victor victor;
 	
-	public VictorRoller(int channel) {
+	public VictorController(int channel) {
 		victor = new Victor(channel);
 	}
 	
-	public VictorRoller(int slot, int channel) {
+	public VictorController(int slot, int channel) {
 		victor = new Victor(slot, channel);
 	}
 	

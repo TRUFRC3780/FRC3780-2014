@@ -36,7 +36,7 @@ public abstract class CommandBase extends Command {
     // Create a single static instance of all subsystems
     public static Chassis chassis;
 	public static Origami origami = new Origami();
-	public static InsideRoller insideRoller;
+	public static Roller roller;
 	public static Arm arm;
 
     public static void init() {
@@ -51,22 +51,22 @@ public abstract class CommandBase extends Command {
         }
 		
 		try {
-			insideRoller = new InsideRoller();
-		} catch(RollerException e) {
-			System.out.println("RollerException while initializing insideRoller");
+			roller = new Roller();
+		} catch(ControllerException e) {
+			System.out.println("ControllerException while initializing roller");
 			System.out.println(e.getMessage());
 		}
 		
 		try {
 			arm = new Arm();
-		} catch(RollerException e) {
-			System.out.println("RollerException while initializing Arm");
+		} catch(ControllerException e) {
+			System.out.println("ControllerException while initializing Arm");
 			System.out.println(e.getMessage());
 		}
         
         // Show what command subsystems are running on the SmartDashboard
         SmartDashboard.putData(chassis);
-		SmartDashboard.putData(insideRoller);
+		SmartDashboard.putData(roller);
 		SmartDashboard.putData(arm);
         
     }
