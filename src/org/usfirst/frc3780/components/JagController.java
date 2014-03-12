@@ -16,7 +16,7 @@ public class JagController extends Controller {
 		} 
 	}
 	
-	// 0-100
+	// -100-100
 	public void set(double speed) throws ControllerException {
 		try {
 			jag.setX(speed / 100);

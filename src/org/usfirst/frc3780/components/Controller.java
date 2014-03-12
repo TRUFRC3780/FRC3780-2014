@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.can.*;
 
 
 public abstract class Controller {
-	
+	// -100-100
 	public abstract void set(double speed) throws ControllerException;
 	public abstract double get() throws ControllerException;
 	
@@ -35,6 +35,14 @@ public abstract class Controller {
 	
 	public static Controller jaguar( int deviceNumber ) throws ControllerException {
 		return new JagController( deviceNumber );
+	}
+	
+	public static Controller talon(int channel) {
+		return new TalonController(channel);
+	}
+	
+	public static Controller talon(int slot, int channel) {
+		return new TalonController(slot,channel);
 	}
 	
 	private void checkSpeed(double speed) throws ControllerException {

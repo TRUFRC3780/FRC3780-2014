@@ -13,7 +13,7 @@ public class VictorController extends Controller {
 		victor = new Victor(slot, channel);
 	}
 	
-	// 0-100
+	// -100-100
 	public void set(double speed) {
 		victor.set(speed / 100);
 	}
