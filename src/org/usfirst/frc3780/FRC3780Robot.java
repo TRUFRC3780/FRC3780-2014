@@ -24,6 +24,7 @@
 package org.usfirst.frc3780;
 
 
+import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -40,6 +41,7 @@ import org.usfirst.frc3780.commands.CommandBase;
  */
 public class FRC3780Robot extends IterativeRobot {
 
+    private Compressor compressor;
     private Command autoCommand;
     
     /**
@@ -48,8 +50,13 @@ public class FRC3780Robot extends IterativeRobot {
      */
     public void robotInit() {
         
+        // Compressor code.
+        compressor = new Compressor(RobotMap.COMPRESSOR_PRESSURE_SWITCH_CHANNEL, RobotMap.COMPRESSOR_RELAY_CHANNEL);
+        
         // Initialize all subsystems
         CommandBase.init();
+        
+        // Initialize autonomous command.
         autoCommand = new AutoCommandGroup();
         
     }
@@ -76,9 +83,24 @@ public class FRC3780Robot extends IterativeRobot {
     }
     
     /**
+     * Hijack test mode to run the off-board compressor.
+     */
+    public void testInit() {
+        compressor.start();
+    }
+    
+    /**
      * This function is called periodically during test mode
      */
     public void testPeriodic() {
-        LiveWindow.run();
+        LiveWindow.run();    
     }
+    
+    /**
+     * Turn the off-board compressor off when the robot disables.
+     */
+    public void disabledInit() {
+        compressor.stop();
+    }
+    
 }

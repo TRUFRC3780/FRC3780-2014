@@ -19,10 +19,10 @@ package org.usfirst.frc3780.subsystems;
 import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc3780.RobotMap;
-import org.usfirst.frc3780.commands.DriveRoller;
+import org.usfirst.frc3780.commands.RollerBallIn;
 
 /**
- * Controls the BaneBots motor powered roller.
+ * Controls the CIM motor powered roller.
  * @author Brian
  */
 public class Roller extends Subsystem {
@@ -36,10 +36,23 @@ public class Roller extends Subsystem {
     /**
      * Drives motor powering the roller.
      * @param speed Double indicating the speed and direction of the roller.
-     * @throws CANTimeoutException
      */
     public void driveRoller(double speed) {
         rollerDrive.set(speed);
+    }
+    
+    /**
+     * Drives the motor in the direction that pulls the ball in.
+     */
+    public void ballIn() {
+        rollerDrive.set(-1);
+    }
+    
+    /**
+     * Drives the motor in the direction that pushes the ball out.
+     */
+    public void ballOut() {
+        rollerDrive.set(1);;
     }
     
     /**
@@ -51,6 +64,5 @@ public class Roller extends Subsystem {
     }
     
     public void initDefaultCommand() {
-//        setDefaultCommand(new DriveRoller());
     }
 }

@@ -16,22 +16,30 @@
 
 package org.usfirst.frc3780.commands;
 
-import edu.wpi.first.wpilibj.command.CommandGroup;
-import org.usfirst.frc3780.RobotMap;
-
 /**
- * Autonomous command sequence.
+ * Shifts the Sonic Shifters into high gear.
  * @author Brian
  */
-public class AutoCommandGroup extends CommandGroup {
+public class ShiftHigh extends CommandBase {
     
-    public AutoCommandGroup() {
-        
-        // Drives robot then spins rollers.
-        addSequential(new ShiftHigh());
-        addSequential(new DriveRobotForTime(5, RobotMap.ROBOT_DRIVE_SPEED));
-        addParallel(new DriveRollerForTime(5, RobotMap.ROLLER_DRIVE_SPEED));
-        addSequential(new DriveRobotForTime(2, RobotMap.ROBOT_DRIVE_SPEED));
-        
+    public ShiftHigh() {
+        requires(shifters);
+    }
+
+    protected void initialize() {
+    }
+
+    protected void execute() {
+        shifters.shiftHigh();
+    }
+
+    protected boolean isFinished() {
+        return shifters.isHigh();
+    }
+
+    protected void end() {
+    }
+
+    protected void interrupted() {
     }
 }

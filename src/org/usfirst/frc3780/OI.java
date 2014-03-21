@@ -18,7 +18,6 @@ package org.usfirst.frc3780;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc3780.commands.*;
 
 /**
@@ -28,21 +27,33 @@ import org.usfirst.frc3780.commands.*;
 public class OI {
 
     private final Joystick driveJoystick, operatorJoystick;
-    
-    private final JoystickButton toggleArm, toggleRoller;
-    
-    private Command driveRoller = new DriveRoller();
+    private final JoystickButton toggleArm, rollerBallIn, rollerBallOut, shiftHigh, shiftLow;
     
     public OI(){
+        
+        // Drive Joystick
         
         driveJoystick = new Joystick(RobotMap.DRIVE_JOYSTICK_PORT);
         operatorJoystick = new Joystick(RobotMap.OPERATOR_JOYSTICK_PORT);
         
+        // Operator Controls
+        
         toggleArm = new JoystickButton(operatorJoystick, RobotMap.TOGGLE_ARM_BUTTON_PORT);
         toggleArm.toggleWhenPressed(new DriveArm());
         
-        toggleRoller = new JoystickButton(operatorJoystick, RobotMap.TOGGLE_ROLLER_BUTTON_PORT);
-        toggleRoller.toggleWhenPressed(driveRoller);
+        rollerBallIn = new JoystickButton(operatorJoystick, RobotMap.ROLLER_IN_BUTTON_PORT);
+        rollerBallIn.whileHeld(new RollerBallIn());
+        
+        rollerBallOut = new JoystickButton(operatorJoystick, RobotMap.ROLLER_OUT_BUTTON_PORT);
+        rollerBallOut.whileHeld(new RollerBallOut());
+        
+        // Shifter Controls
+        
+        shiftHigh = new JoystickButton(driveJoystick, RobotMap.SHIFT_HIGH_BUTTON_PORT);
+        shiftHigh.whenPressed(new ShiftHigh());
+        
+        shiftLow = new JoystickButton(driveJoystick, RobotMap.SHIFT_LOW_BUTTON_PORT);
+        shiftLow.whenPressed(new ShiftLow());
         
     }
     

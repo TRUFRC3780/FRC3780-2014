@@ -16,22 +16,32 @@
 
 package org.usfirst.frc3780.commands;
 
-import edu.wpi.first.wpilibj.command.CommandGroup;
-import org.usfirst.frc3780.RobotMap;
-
 /**
- * Autonomous command sequence.
+ * Drives the roller in the direction that pulls the ball in at full speed.
  * @author Brian
  */
-public class AutoCommandGroup extends CommandGroup {
+public class RollerBallIn extends CommandBase {
     
-    public AutoCommandGroup() {
-        
-        // Drives robot then spins rollers.
-        addSequential(new ShiftHigh());
-        addSequential(new DriveRobotForTime(5, RobotMap.ROBOT_DRIVE_SPEED));
-        addParallel(new DriveRollerForTime(5, RobotMap.ROLLER_DRIVE_SPEED));
-        addSequential(new DriveRobotForTime(2, RobotMap.ROBOT_DRIVE_SPEED));
-        
+    public RollerBallIn() {
+        requires(roller);
+    }
+
+    protected void initialize() {
+    }
+
+    protected void execute() {
+        roller.ballIn();
+    }
+
+    protected boolean isFinished() {
+        return false;
+    }
+
+    protected void end() {
+        roller.stopRoller();
+    }
+
+    protected void interrupted() {
+        end();
     }
 }

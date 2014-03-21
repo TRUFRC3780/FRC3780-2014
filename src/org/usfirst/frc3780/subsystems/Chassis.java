@@ -60,13 +60,6 @@ public class Chassis extends Subsystem {
     }
     
     /**
-     * Arcade drive initializes with subsystem.
-     */
-    public void initDefaultCommand() {
-        setDefaultCommand(new DriveRobot());
-    }
-    
-    /**
      * Sets the left and right outputs for the RobotDrive.
      * @param speed Speed to drive at.
      */
@@ -79,6 +72,13 @@ public class Chassis extends Subsystem {
      */
     public void stopDrive() {
         drive.setLeftRightMotorOutputs(0, 0);
+    }
+    
+    /**
+     * Arcade drive initializes with subsystem.
+     */
+    public void initDefaultCommand() {
+        setDefaultCommand(new DriveRobot());
     }
     
 }

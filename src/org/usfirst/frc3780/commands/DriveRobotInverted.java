@@ -17,20 +17,19 @@
 package org.usfirst.frc3780.commands;
 
 /**
- * Drives the roller using the z-axis on the joystick.
+ * Drives the robot with the drive joystick, but swaps the front and the back.
  * @author Brian
  */
-public class DriveRoller extends CommandBase {
+public class DriveRobotInverted extends CommandBase {
     
-    public DriveRoller() {
-        requires(roller);
+    public DriveRobotInverted() {
+        requires(chassis);
     }
 
     protected void initialize() {
     }
 
     protected void execute() {
-        roller.driveRoller(oi.getOperatorJoystick().getZ()*-1);
     }
 
     protected boolean isFinished() {
@@ -38,10 +37,8 @@ public class DriveRoller extends CommandBase {
     }
 
     protected void end() {
-        roller.stopRoller();
     }
 
     protected void interrupted() {
-        end();
     }
 }

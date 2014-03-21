@@ -24,27 +24,36 @@ package org.usfirst.frc3780;
  */
 public class RobotMap {
 
-    // Jaguars
-    public static final int CHASSIS_FRONT_LEFT_DRIVE_ID = 1;
+    // Motor Controllers
+    public static final int CHASSIS_FRONT_LEFT_DRIVE_ID = 4;
     public static final int CHASSIS_FRONT_RIGHT_DRIVE_ID = 2;
     public static final int CHASSIS_REAR_LEFT_DRIVE_ID = 3;
-    public static final int CHASSIS_REAR_RIGHT_DRIVE_ID = 4;
+    public static final int CHASSIS_REAR_RIGHT_DRIVE_ID = 1;
     
-    public static final int ROLLER_DRIVE_ID = 5;
-    public static final int ARM_DRIVE_ID = 6;
+    public static final int ROLLER_DRIVE_ID = 6;
+    public static final int ARM_DRIVE_ID = 5;
+    
+    // Compressor
+    public static final int COMPRESSOR_PRESSURE_SWITCH_CHANNEL = 1;
+    public static final int COMPRESSOR_RELAY_CHANNEL = 1;
+    
+    // Solenoid
+    public static final int SHIFTERS_REVERSE_PORT = 1; // high gear
+    public static final int SHIFTERS_FORWARD_PORT = 2; // low gear
     
     // Joysticks
     public static final int DRIVE_JOYSTICK_PORT = 1;
     public static final int OPERATOR_JOYSTICK_PORT = 2;
     
     // Buttons
-    public static final int TOGGLE_ARM_BUTTON_PORT = 3;
-    public static final int TOGGLE_ROLLER_BUTTON_PORT = 2;
+    public static final int TOGGLE_ARM_BUTTON_PORT = 1;
+    public static final int ROLLER_IN_BUTTON_PORT = 2;
+    public static final int ROLLER_OUT_BUTTON_PORT = 3;
+    public static final int SHIFT_HIGH_BUTTON_PORT = 3;
+    public static final int SHIFT_LOW_BUTTON_PORT = 2;
     
-    // Autonomous Timing
-    public static final int ROBOT_DRIVE_TIME = 7;
+    // Autonomous
     public static final int ROBOT_DRIVE_SPEED = 1;
-    public static final int ROLLER_DRIVE_TIME = 3;
     public static final int ROLLER_DRIVE_SPEED = -1;
     
 }

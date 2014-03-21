@@ -35,12 +35,14 @@ public abstract class CommandBase extends Command {
     public static Chassis chassis;
     public static Roller roller;
     public static Arm arm;
+    public static Shifters shifters;
 
     public static void init() {
         
         chassis = new Chassis();
         roller = new Roller();
         arm = new Arm();
+        shifters = new Shifters();
         
         // Instantiate OI, subsystems.
         oi = new OI();
