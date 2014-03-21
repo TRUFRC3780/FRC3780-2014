@@ -27,7 +27,7 @@ import org.usfirst.frc3780.commands.*;
 public class OI {
 
     private final Joystick driveJoystick, operatorJoystick;
-    private final JoystickButton toggleArm, rollerBallIn, rollerBallOut, shiftHigh, shiftLow;
+    private final JoystickButton toggleArm, rollerBallIn, rollerBallOut, shiftHigh, shiftLow, driveNormal, driveInverted;
     
     public OI(){
         
@@ -47,13 +47,21 @@ public class OI {
         rollerBallOut = new JoystickButton(operatorJoystick, RobotMap.ROLLER_OUT_BUTTON_PORT);
         rollerBallOut.whileHeld(new RollerBallOut());
         
-        // Shifter Controls
+        // Drive Controls
         
         shiftHigh = new JoystickButton(driveJoystick, RobotMap.SHIFT_HIGH_BUTTON_PORT);
         shiftHigh.whenPressed(new ShiftHigh());
         
         shiftLow = new JoystickButton(driveJoystick, RobotMap.SHIFT_LOW_BUTTON_PORT);
         shiftLow.whenPressed(new ShiftLow());
+        
+        driveNormal = new JoystickButton(driveJoystick, RobotMap.DRIVE_NORMAL_BUTTON_PORT);
+        driveNormal.cancelWhenPressed(new DriveRobotInverted());
+        driveNormal.whenPressed(new DriveRobot());
+        
+        driveInverted = new JoystickButton(driveJoystick, RobotMap.DRIVE_INVERTED_BUTTON_PORT);
+        driveInverted.cancelWhenPressed(new DriveRobot());
+        driveInverted.whenPressed(new DriveRobotInverted());
         
     }
     

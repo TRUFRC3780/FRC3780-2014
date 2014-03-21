@@ -17,7 +17,7 @@
 package org.usfirst.frc3780.commands;
 
 /**
- * Drives the robot with the drive joystick, but swaps the front and the back.
+ * Drives the robot with the drive joystick, switching the front and back.
  * @author Brian
  */
 public class DriveRobotInverted extends CommandBase {
@@ -30,6 +30,7 @@ public class DriveRobotInverted extends CommandBase {
     }
 
     protected void execute() {
+        chassis.arcadeDrive(oi.getDriveJoystick().getY(), oi.getDriveJoystick().getX());        
     }
 
     protected boolean isFinished() {

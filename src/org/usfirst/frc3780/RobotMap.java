@@ -51,6 +51,8 @@ public class RobotMap {
     public static final int ROLLER_OUT_BUTTON_PORT = 3;
     public static final int SHIFT_HIGH_BUTTON_PORT = 3;
     public static final int SHIFT_LOW_BUTTON_PORT = 2;
+    public static final int DRIVE_NORMAL_BUTTON_PORT = 4;
+    public static final int DRIVE_INVERTED_BUTTON_PORT = 5;
     
     // Autonomous
     public static final int ROBOT_DRIVE_SPEED = 1;
