@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc3780.RobotMap;
 // import the RobotMap constants
 
-import org.usfirst.frc3780.components.Piston;
+import org.usfirst.frc3780.components.*;
 
 public class Origami extends Subsystem {
 	private Piston[] pistons;
@@ -25,21 +25,22 @@ public class Origami extends Subsystem {
 		}
 	}
 	
-	public void extendAll() {
-		for(Piston piston : pistons) piston.extend();
+	public void extendAll() throws PistonException {
+		for(int i = 0;i<pistons.length;i++) pistons[i].extend();
 	}
 	
-	public void retractAll() {
-		for(Piston piston : pistons) piston.retract();
+	public void retractAll()  throws PistonException {
+		for(int i = 0;i<pistons.length;i++) pistons[i].retract();
 	}
 	
-	public void toggleAll() {
-		for(Piston piston : pistons) piston.toggle();
+	public void toggleAll()  throws PistonException  {
+		for(int i = 0;i<pistons.length;i++) pistons[i].toggle();
 	}
 	
-	public boolean isExtended() {
+	public boolean isExtended() throws PistonException {
 		boolean extended = true;
-		for(Piston piston : pistons) {
+		for(int i=0;i<pistons.length;i++) {
+                        Piston piston = pistons[i];
 			if(!piston.isExtended()) extended = false;
 		}
 		

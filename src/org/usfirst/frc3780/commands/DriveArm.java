@@ -47,12 +47,7 @@ public class DriveArm extends CommandBase {
     }
 
     protected void end() {
-        try {
-            arm.stop();
-        } catch (ControllerException exception) {
-            System.out.println(exception.getMessage());
-            System.out.println("ControllerException : J" + RobotMap.ARM_DRIVE_ID);
-        }
+        arm.stop();
     }
 
     protected void interrupted() {

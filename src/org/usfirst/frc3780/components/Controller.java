@@ -20,7 +20,7 @@ public abstract class Controller {
 		set( -speed );
 	}
 	
-	public void stop() {
+	public void stop() throws ControllerException {
 		set(0);
 	}
 	

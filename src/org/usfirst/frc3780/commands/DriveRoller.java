@@ -47,12 +47,7 @@ public class DriveRoller extends CommandBase {
     }
 
     protected void end() {
-        try {
-            roller.stop();
-        } catch (ControllerException exception) {
-            System.out.println(exception.getMessage());
-            System.out.println("ControllerException : J" + RobotMap.INSIDE_ROLLER_ID);
-        }
+        roller.stop();
     }
 
     protected void interrupted() {
