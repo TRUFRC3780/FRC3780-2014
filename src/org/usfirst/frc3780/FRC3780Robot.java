@@ -25,6 +25,7 @@ package org.usfirst.frc3780;
 
 
 import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -43,6 +44,7 @@ public class FRC3780Robot extends IterativeRobot {
 
     private Compressor compressor;
     private Command autoCommand;
+//    private DigitalInput diag;
     
     /**
      * This function is run when the robot is first started up and should be
@@ -52,6 +54,8 @@ public class FRC3780Robot extends IterativeRobot {
         
         // Compressor code.
         compressor = new Compressor(RobotMap.COMPRESSOR_PRESSURE_SWITCH_CHANNEL, RobotMap.COMPRESSOR_RELAY_CHANNEL);
+//        diag = new DigitalInput(2);
+        compressor.start();
         
         // Initialize all subsystems
         CommandBase.init();
@@ -79,14 +83,12 @@ public class FRC3780Robot extends IterativeRobot {
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
+//        System.out.println("1: " + compressor.getPressureSwitchValue());
+//        System.out.println("2: " + diag.get());
         Scheduler.getInstance().run();
     }
     
-    /**
-     * Hijack test mode to run the off-board compressor.
-     */
     public void testInit() {
-        compressor.start();
     }
     
     /**
@@ -94,13 +96,6 @@ public class FRC3780Robot extends IterativeRobot {
      */
     public void testPeriodic() {
         LiveWindow.run();    
-    }
-    
-    /**
-     * Turn the off-board compressor off when the robot disables.
-     */
-    public void disabledInit() {
-        compressor.stop();
     }
     
 }

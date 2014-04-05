@@ -55,7 +55,7 @@ public class RobotMap {
     public static final int DRIVE_INVERTED_BUTTON_PORT = 5;
     
     // Autonomous
-    public static final int ROBOT_DRIVE_SPEED = 1;
-    public static final int ROLLER_DRIVE_SPEED = -1;
+    public static final double ROBOT_DRIVE_SPEED = -.5;
+    public static final double ROLLER_DRIVE_SPEED = -1;
     
 }

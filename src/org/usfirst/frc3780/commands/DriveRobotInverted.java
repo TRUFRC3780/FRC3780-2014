@@ -30,7 +30,7 @@ public class DriveRobotInverted extends CommandBase {
     }
 
     protected void execute() {
-        chassis.arcadeDrive(oi.getDriveJoystick().getY(), oi.getDriveJoystick().getX());        
+        chassis.arcadeDrive(oi.getDriveJoystick().getY(), oi.getDriveJoystick().getX()*-1);        
     }
 
     protected boolean isFinished() {

@@ -29,9 +29,8 @@ public class AutoCommandGroup extends CommandGroup {
         
         // Drives robot then spins rollers.
         addSequential(new ShiftHigh());
-        addSequential(new DriveRobotForTime(5, RobotMap.ROBOT_DRIVE_SPEED));
-        addParallel(new DriveRollerForTime(5, RobotMap.ROLLER_DRIVE_SPEED));
-        addSequential(new DriveRobotForTime(2, RobotMap.ROBOT_DRIVE_SPEED));
+        addSequential(new DriveRobotForTime(6, RobotMap.ROBOT_DRIVE_SPEED));
+        addSequential(new DriveRollerForTime(5, RobotMap.ROLLER_DRIVE_SPEED));
         
     }
 }

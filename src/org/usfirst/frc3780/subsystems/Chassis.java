@@ -24,6 +24,7 @@ import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc3780.RobotMap;
 import org.usfirst.frc3780.commands.DriveRobot;
+import org.usfirst.frc3780.commands.DriveRobotInverted;
 
 /**
  * This subsystem handles the drive train.
@@ -78,7 +79,7 @@ public class Chassis extends Subsystem {
      * Arcade drive initializes with subsystem.
      */
     public void initDefaultCommand() {
-        setDefaultCommand(new DriveRobot());
+        setDefaultCommand(new DriveRobotInverted());
     }
     
 }

@@ -30,7 +30,7 @@ public class RollerBallIn extends CommandBase {
     }
 
     protected void execute() {
-        roller.ballIn();
+        roller.ballOut();
     }
 
     protected boolean isFinished() {
